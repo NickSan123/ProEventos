@@ -1,8 +1,60 @@
 <h1>Eventos component</h1>
 
 
-<div *ngFor="let evento of eventos">
-  <p>Tema: {{evento.Tema}}</p>
-  <p>Local: {{evento.Local}}</p>
-  <hr>
+<div>
+
+  <!--div class="row">
+    <div class="col">
+      <img src="{{evento.imageURL}}" class="img-thumbnail" width="200"/>
+    </div>
+    <div class="col">
+      <p>ID: {{evento.eventoID}}</p>
+    </div>
+    <div class="col">
+      <p>Local: {{evento.local}}</p>
+    </div>
+    <div class="col">
+      <p>Data: {{evento.dataEvento}}</p>
+    </div>
+    <div class="col">
+      <p>Tema: {{evento.tema}}</p>
+    </div>
+    <div class="col">
+      <p>Qtde de pessoas: {{evento.qtdPessoas}}</p>
+    </div>
+    <div class="col">
+      <p>lote: {{evento.lote}}</p>
+    </div>
+  </!--div>
+  <hr/-->
+
+
+  <table class="table table-hover" >
+
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">Local</th>
+        <th scope="col">Data</th>
+        <th scope="col">Tema</th>
+        <th scope="col">Qtde de pessoas</th>
+        <th scope="col">lote</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let evento of eventos">
+      <tr>
+        <th scope="row"><img src="{{evento.imageURL}}" class="img-thumbnail" width="200"/></th>
+        <td>{{evento.eventoID}}</td>
+        <td>{{evento.local}}</td>
+        <td>{{evento.dataEvento}}</td>
+        <td>{{evento.tema}}</td>
+        <td>{{evento.qtdPessoas}}</td>
+        <td>{{evento.lote}}</td>
+      </tr>
+    </tbody>
+  </table>
+
 </div>
+
+

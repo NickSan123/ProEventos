@@ -6,17 +6,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EventosComponent } from './eventos/eventos.component';
 import { PalestrantesComponent } from './palestrantes/palestrantes.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NavComponentComponent } from './nav-component/nav-component.component';
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     EventosComponent,
-      PalestrantesComponent
+      PalestrantesComponent,
+      NavComponentComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
