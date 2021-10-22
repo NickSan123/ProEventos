@@ -1,60 +1,63 @@
 <h1>Eventos component</h1>
 
-
-<div>
-
-  <!--div class="row">
-    <div class="col">
-      <img src="{{evento.imageURL}}" class="img-thumbnail" width="200"/>
-    </div>
-    <div class="col">
-      <p>ID: {{evento.eventoID}}</p>
-    </div>
-    <div class="col">
-      <p>Local: {{evento.local}}</p>
-    </div>
-    <div class="col">
-      <p>Data: {{evento.dataEvento}}</p>
-    </div>
-    <div class="col">
-      <p>Tema: {{evento.tema}}</p>
-    </div>
-    <div class="col">
-      <p>Qtde de pessoas: {{evento.qtdPessoas}}</p>
-    </div>
-    <div class="col">
-      <p>lote: {{evento.lote}}</p>
-    </div>
-  </!--div>
-  <hr/-->
-
-
+  <div class="d-flex">
+    <input class="form-control mr-2" type="search" placeholder="Localizar" aria-label="Search"
+    [(ngModel)]="pesquisa">
+    <!--button class="btn btn-outline-success" type="submit">Search</!--button-->
+  </div>
   <table class="table table-hover" >
-
     <thead>
       <tr>
-        <th scope="col">#</th>
         <th scope="col">ID</th>
+        <th scope="col"><button class="btn btn-outline-secondary btn-sm" (click)="alterarImagem()" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          {{nomeButton}}
+        </button></th>
         <th scope="col">Local</th>
         <th scope="col">Data</th>
         <th scope="col">Tema</th>
         <th scope="col">Qtde de pessoas</th>
         <th scope="col">lote</th>
+        <th scope="col">Ação</th>
       </tr>
     </thead>
-    <tbody *ngFor="let evento of eventos">
-      <tr>
-        <th scope="row"><img src="{{evento.imageURL}}" class="img-thumbnail" width="200"/></th>
+    <tbody *ngIf="eventos && eventos.length">
+      <tr *ngFor="let evento of filtrados">
         <td>{{evento.eventoID}}</td>
+        <th scope="row"><p [collapse]="isCollapsed" [isAnimated]="true"></p><img  [collapse]="!isCollapsed" [isAnimated]="true" src="{{evento.imageURL}}" class="img-thumbnail" width="100"/></th>
         <td>{{evento.local}}</td>
         <td>{{evento.dataEvento}}</td>
         <td>{{evento.tema}}</td>
         <td>{{evento.qtdPessoas}}</td>
         <td>{{evento.lote}}</td>
+        <td margin>
+          <div class="d-grid gap-2 d-md-block">
+            <div class="container">
+              <div class="row">
+                <div class="col">
+                  <button type="button" class="btn btn-outline-success ">Visualizar</button>
+                </div>
+                <div class="col">
+                  <button type="button" class="btn btn-outline-primary">Editar</button>
+                </div>
+                <div class="col">
+                  <button type="button" class="btn btn-outline-danger">Deletar</button>
+                </div>
+              </div>
+            </div>
+
+
+
+
+          </div>
+
+        </td>
       </tr>
     </tbody>
+    <tfoot *ngIf="!eventos.length">
+      <tr>
+        <td colspan="8">
+          <h4>Nenhum evento encontrado</h4>
+        </td>
+      </tr>
+    </tfoot>
   </table>
-
-</div>
-
-
